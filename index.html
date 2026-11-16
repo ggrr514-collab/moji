@@ -36,18 +36,17 @@ main{max-width:480px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
 .logo span:nth-child(n+3){color:var(--accent)}
 .lead{color:var(--muted);margin:0;line-height:1.7}
 .games li{min-width:0}
-.games{display:flex;flex-direction:column;gap:12px;list-style:none;margin:0;padding:0}
-.game{display:grid;grid-template-columns:92px 1fr;gap:14px;align-items:center;text-decoration:none;color:inherit;
-  border:1.5px solid var(--ink);background:var(--panel);border-radius:12px;padding:12px}
+.games{display:grid;grid-template-columns:1fr 1fr;gap:12px;list-style:none;margin:0;padding:0}
+.game{display:flex;flex-direction:column;gap:8px;text-decoration:none;color:inherit;
+  border:1.5px solid var(--ink);background:var(--panel);border-radius:12px;padding:8px 8px 10px}
 .game:active{transform:translateY(1px)}
 .game:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
-.pic{width:92px;height:92px;border-radius:8px;background:var(--paper);border:1px solid var(--line);display:block;
-  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:23px 23px}
-.pic text{font-family:var(--body);font-weight:900;fill:var(--ink)}
-.txt{display:flex;flex-direction:column;gap:5px;min-width:0}
-.name{font-family:var(--display);font-size:24px;line-height:1.1}
-.desc{font-size:13.5px;line-height:1.6;color:var(--muted)}
-.tags{display:flex;flex-wrap:wrap;gap:6px;font-size:12px;font-weight:700}
+.hero{display:block;border:1px solid var(--line);border-radius:6px;overflow:hidden;background:var(--paper)}
+.hero img{display:block;width:100%;height:auto}
+.hero .d{display:none}
+@media (prefers-color-scheme: dark){.hero .l{display:none}.hero .d{display:block}}
+.name{font-family:var(--display);font-size:20px;line-height:1.1;padding:0 2px}
+.tags{padding:0 2px;display:flex;flex-wrap:wrap;gap:6px;font-size:12px;font-weight:700}
 .tag{border:1px solid var(--line);border-radius:99px;padding:2px 9px;white-space:nowrap}
 .tag.todo{background:var(--accent);border-color:var(--accent);color:var(--bg)}
 .tag.done{border-color:var(--good);color:var(--good)}
@@ -56,52 +55,24 @@ main{max-width:480px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
 </head><body>
 <main>
   <h1 class="logo" aria-label="もじあそび"><span>も</span><span>じ</span><span>あ</span><span>そ</span><span>び</span></h1>
-  <p class="lead">字を積む、掛ける、量る、分ける。字の形で遊ぶ4つのゲーム。</p>
   <ul class="games">
     <li><a class="game" href="../mojitsumi/">
-      <svg class="pic" viewBox="0 0 92 92" aria-hidden="true">
-        <rect x="14" y="80" width="64" height="6" fill="var(--desk)"/>
-        <text x="46" y="78" font-size="30" text-anchor="middle">山</text>
-        <text x="40" y="52" font-size="28" text-anchor="middle" transform="rotate(-14 40 42)">も</text>
-        <text x="52" y="27" font-size="24" text-anchor="middle" transform="rotate(20 52 19)" style="fill:var(--accent)">ツ</text>
-      </svg>
-      <span class="txt"><span class="name">もじつみ</span>
-        <span class="desc">打った字が、その字の形のまま落ちてくる。崩さずにどこまで積めるか。</span>
-        <span class="tags"><span class="tag">いつでも何回でも</span></span></span></a></li>
+      <span class="hero"><img class="l" src="scene-tsumi.png" alt="字を積んでいる場面" width="720" height="720"><img class="d" src="scene-tsumi-dark.png" alt="" width="720" height="720"></span>
+      <span class="name">もじつみ</span>
+      <span class="tags"><span class="tag">何回でも</span></span></a></li>
     <li><a class="game" href="../mojikake/">
-      <svg class="pic" viewBox="0 0 92 92" aria-hidden="true">
-        <text x="30" y="40" font-size="20" text-anchor="middle" transform="rotate(180 30 33)" style="font-weight:500">つ</text>
-        <text x="58" y="70" font-size="40" text-anchor="middle" transform="rotate(180 58 56)" style="font-weight:500">し</text>
-        <path d="M4 14Q40 30 90 62" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" fill="none"/>
-      </svg>
-      <span class="txt"><span class="name">もじかけ</span>
-        <span class="desc">打った字を、たわむ一本の糸に引っ掛けていく。1字でも落ちたら終わり。</span>
-        <span class="tags"><span class="tag">いつでも何回でも</span></span></span></a></li>
+      <span class="hero"><img class="l" src="scene-kake.png" alt="糸に字が掛かっている場面" width="720" height="720"><img class="d" src="scene-kake-dark.png" alt="" width="720" height="720"></span>
+      <span class="name">もじかけ</span>
+      <span class="tags"><span class="tag">何回でも</span></span></a></li>
     <li><a class="game" href="../mojihakari/">
-      <svg class="pic" viewBox="0 0 92 92" aria-hidden="true">
-        <path d="M46 30V82M30 84H62" stroke="var(--deskdark)" stroke-width="4" stroke-linecap="round" fill="none"/>
-        <g transform="rotate(-9 46 30)">
-          <path d="M12 30H80" stroke="var(--ink)" stroke-width="4" stroke-linecap="round"/>
-          <text x="16" y="27" font-size="22" text-anchor="middle">鬱</text>
-          <text x="76" y="27" font-size="22" text-anchor="middle" style="fill:var(--accent)">国</text>
-        </g>
-        <circle cx="46" cy="30" r="4" fill="var(--accent)"/>
-      </svg>
-      <span class="txt"><span class="name">もじはかり</span>
-        <span class="desc">字の重さは、黒い部分の広さ。お題とぴったり釣り合う言葉を天秤に載せる。</span>
-        <span class="tags"><span class="tag">1日1問</span><span class="tag" id="stHakari" hidden></span></span></span></a></li>
+      <span class="hero"><img class="l" src="scene-hakari.png" alt="天秤に言葉を載せている場面" width="720" height="720"><img class="d" src="scene-hakari-dark.png" alt="" width="720" height="720"></span>
+      <span class="name">もじはかり</span>
+      <span class="tags"><span class="tag">1日1問</span><span class="tag" id="stHakari" hidden></span></span></a></li>
     <li><a class="game" href="../mojiwake/">
-      <svg class="pic" viewBox="0 0 92 92" aria-hidden="true">
-        <defs><clipPath id="cL"><path d="M0 0H52L36 92H0Z"/></clipPath><clipPath id="cR"><path d="M52 0H92V92H36Z"/></clipPath></defs>
-        <text x="44" y="68" font-size="62" text-anchor="middle" clip-path="url(#cL)">字</text>
-        <text x="48" y="68" font-size="62" text-anchor="middle" clip-path="url(#cR)" style="fill:var(--accent)">字</text>
-        <path d="M54 4L36 88" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"/>
-      </svg>
-      <span class="txt"><span class="name">もじわけ</span>
-        <span class="desc">線を1本。字の黒いところを、ちょうど半分に分けられるか。</span>
-        <span class="tags"><span class="tag">1日5字</span><span class="tag" id="stWake" hidden></span></span></span></a></li>
+      <span class="hero"><img class="l" src="scene-wake.png" alt="字を線で2つに分けた場面" width="720" height="720"><img class="d" src="scene-wake-dark.png" alt="" width="720" height="720"></span>
+      <span class="name">もじわけ</span>
+      <span class="tags"><span class="tag">1日5字</span><span class="tag" id="stWake" hidden></span></span></a></li>
   </ul>
-  <p class="foot">どれも無料で、登録はいりません。名前を入れると全国ランキングに載ります。日替わりの問題は毎日0時に変わります。</p>
 </main>
 <script>
 // 同じ端末で今日の分を遊んだかどうか（各ゲームがこの端末に残した記録を見るだけ）
